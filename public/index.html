@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>TikGram - TikTok & Instagram No Watermark Video Downloader</title>
+  <meta name="description" content="Download TikTok and Instagram videos, reels, posts and MP3 audio in Full HD without watermark. 100% Free and Fast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="bg-glow bg-glow-tiktok"></div>
+  <div class="bg-glow bg-glow-insta"></div>
+
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">Tik<span class="gradient-text">Gram</span></span>
+          <span class="brand-badge">NO WATERMARK</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#how-to" class="nav-link"><i class="fa-regular fa-circle-question"></i> How it Works</a>
+        <a href="#features" class="nav-link"><i class="fa-solid fa-bolt"></i> Features</a>
+        <a href="#faq" class="nav-link"><i class="fa-regular fa-comments"></i> FAQ</a>
+        <button id="historyToggleBtn" class="btn btn-glass btn-sm">
+          <i class="fa-solid fa-clock-rotate-left"></i> History <span id="historyCount" class="badge">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-header">
+          <div class="tag-pill">
+            <span class="pulse-dot"></span> 100% Free & Unlimited HD Downloader
+          </div>
+          <h1 class="hero-title">
+            Download TikTok & Instagram <br>
+            <span class="gradient-hero-text">Without Watermark</span>
+          </h1>
+          <p class="hero-subtitle">
+            Paste any TikTok or Instagram Reel / Video link below. Download in Full HD MP4 or extract original MP3 audio in seconds!
+          </p>
+        </div>
+
+        <!-- Platform Tabs -->
+        <div class="platform-tabs">
+          <button class="platform-tab active" data-platform="all">
+            <i class="fa-solid fa-layer-group"></i> Auto-Detect
+          </button>
+          <button class="platform-tab" data-platform="tiktok">
+            <i class="fa-brands fa-tiktok"></i> TikTok
+          </button>
+          <button class="platform-tab" data-platform="instagram">
+            <i class="fa-brands fa-instagram"></i> Instagram Reels
+          </button>
+        </div>
+
+        <!-- Input Search Card -->
+        <div class="search-box-wrapper">
+          <form id="downloadForm" class="search-box">
+            <div class="search-box-top">
+              <div class="input-icon-left">
+                <i class="fa-solid fa-link" id="inputStatusIcon"></i>
+              </div>
+              <input 
+                type="url" 
+                id="videoUrlInput" 
+                placeholder="Paste TikTok or Instagram link here (e.g. https://www.tiktok.com/@... or instagram.com/reel/...)" 
+                required
+                autocomplete="off"
+              >
+              <div class="search-actions">
+                <button type="button" id="pasteBtn" class="btn-action" title="Paste from clipboard">
+                  <i class="fa-regular fa-paste"></i> Paste
+                </button>
+                <button type="button" id="clearBtn" class="btn-action hidden" title="Clear input">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              <span class="btn-text">Download</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </button>
+          </form>
+          <div class="input-helper">
+            <span><i class="fa-solid fa-shield-halved"></i> No login required</span>
+            <span><i class="fa-solid fa-gauge-high"></i> Ultra Fast Processing</span>
+            <span><i class="fa-solid fa-film"></i> Crystal Clear 1080p HD</span>
+          </div>
+        </div>
+
+        <!-- Loader State -->
+        <div id="loaderCard" class="glass-card loader-card hidden">
+          <div class="spinner-orbit">
+            <div class="orbit-circle"></div>
+          </div>
+          <h3 id="loaderStatusText" class="loader-title">Fetching video stream...</h3>
+          <p id="loaderSubText" class="loader-desc">Bypassing watermark & generating high-speed HD download links</p>
+        </div>
+
+        <!-- Result Card -->
+        <div id="resultCard" class="glass-card result-card hidden">
+          <div class="result-grid">
+            <!-- Left: Video Preview -->
+            <div class="result-media-col">
+              <div class="media-container">
+                <video id="videoPreview" controls playsinline preload="metadata" poster="" class="preview-player hidden"></video>
+                <img id="imagePreview" src="" alt="Cover thumbnail" class="preview-thumb">
+                <div class="platform-badge-overlay" id="platformBadge">
+                  <i class="fa-brands fa-tiktok"></i> TikTok
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Details & Download Buttons -->
+            <div class="result-info-col">
+              <div class="author-row">
+                <img id="authorAvatar" src="" alt="Author" class="author-avatar hidden">
+                <div class="author-meta">
+                  <h4 id="authorName" class="author-name">Creator</h4>
+                  <span id="authorHandle" class="author-handle">@username</span>
+                </div>
+                <div class="duration-badge" id="videoDuration">0:00</div>
+              </div>
+
+              <h2 id="videoTitle" class="video-title">Video title will appear here</h2>
+
+              <div class="download-section">
+                <span class="download-label"><i class="fa-solid fa-download"></i> Available Downloads (No Watermark):</span>
+                
+                <div class="download-buttons-group" id="downloadButtons">
+                  <!-- Dynamically populated buttons -->
+                </div>
+              </div>
+
+              <div class="action-footer">
+                <button type="button" id="newSearchBtn" class="btn btn-glass btn-sm">
+                  <i class="fa-solid fa-arrow-rotate-left"></i> Download Another Video
+                </button>
+                <button type="button" id="shareResultBtn" class="btn btn-glass btn-sm">
+                  <i class="fa-solid fa-share-nodes"></i> Share
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Demo Links for First Time Users -->
+        <div class="demo-section">
+          <span class="demo-title">Want to test? Try these sample formats:</span>
+          <div class="demo-chips">
+            <button type="button" class="chip" data-sample="tiktok">
+              <i class="fa-brands fa-tiktok"></i> TikTok URL Format
+            </button>
+            <button type="button" class="chip" data-sample="instagram">
+              <i class="fa-brands fa-instagram"></i> Instagram Reel Format
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Why Choose <span class="gradient-text">TikGram</span>?</h2>
+          <p class="section-desc">The most reliable, zero-watermark video downloader engine.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon icon-cyan">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3>100% No Watermark</h3>
+            <p>Removes the floating TikTok logo and Instagram tags so you get the pristine original video.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-pink">
+              <i class="fa-solid fa-bolt-lightning"></i>
+            </div>
+            <h3>High Speed Engine</h3>
+            <p>Our dual-channel streaming engine extracts videos in under 2 seconds directly to your device.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-purple">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <h3>Extract MP3 Audio</h3>
+            <p>Love the background sound or song? Download pristine 320kbps MP3 audio with one tap.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-orange">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <h3>Works Everywhere</h3>
+            <p>Compatible with Android, iPhone (iOS Safari), Windows, Mac, and tablets without installing apps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Download Guide -->
+    <section id="how-to" class="guide-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">How To Download In <span class="gradient-text">3 Easy Steps</span></h2>
+          <p class="section-desc">Simple guide for TikTok and Instagram</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Copy Link</h3>
+            <p>Open TikTok or Instagram app, click the <strong>Share</strong> button on any video/reel and select <strong>Copy Link</strong>.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Paste & Extract</h3>
+            <p>Paste the copied link in the input box above and click the <strong>Download</strong> button.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Save to Device</h3>
+            <p>Choose your preferred quality (HD No Watermark or MP3 Audio) and save directly to your gallery or downloads folder.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+          <p class="section-desc">Everything you need to know about TikGram</p>
+        </div>
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is this downloader completely free? / Kya ye free hai?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, 100% free! You can download unlimited TikTok and Instagram videos without any subscription, registration, or hidden fees.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Will the video have TikTok or Instagram watermarks?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>No! Our engine fetches the original source video directly from the servers before watermarks are added, giving you a clean, crisp video.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Where are downloaded videos saved on my phone?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>On Android and PC, files are saved in your <strong>Downloads</strong> folder. On iPhone (iOS), you can find them in the Files app or save directly to your Photos / Camera Roll from Safari.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I download private TikTok or Instagram videos?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>No, due to privacy regulations, only publicly accessible videos and reels can be fetched.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- History Drawer -->
+  <div id="historyDrawer" class="history-drawer">
+    <div class="drawer-header">
+      <h3><i class="fa-solid fa-clock-rotate-left"></i> Download History</h3>
+      <div class="drawer-actions">
+        <button id="clearHistoryBtn" class="btn-icon" title="Clear all history">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <button id="closeHistoryBtn" class="btn-icon">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+    <div id="historyList" class="drawer-content">
+      <div class="empty-history">
+        <i class="fa-regular fa-folder-open"></i>
+        <p>No recent downloads yet</p>
+      </div>
+    </div>
+  </div>
+  <div id="drawerOverlay" class="drawer-overlay"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="logo">
+          <i class="fa-solid fa-cloud-arrow-down"></i> TikGram
+        </div>
+        <p class="footer-disclaimer">
+          TikGram is an educational tool and is not affiliated with TikTok, ByteDance, Instagram, or Meta. All trademarks belong to their respective owners.
+        </p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-badge">
+          <i class="fa-solid fa-heart" style="color: #fe2c55;"></i> Made for TikTok & Instagram Creators
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js?v=5.0"></script>
+</body>
+</html>
