@@ -270,8 +270,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Proxy URL for direct download
         const proxyUrl = `/api/download?url=${encodeURIComponent(dl.url)}&title=${encodeURIComponent(data.title || 'video')}&type=mp4`;
         btn.href = proxyUrl;
-        btn.target = '_blank';
         btn.setAttribute('download', `${(data.title || 'video').substring(0, 30)}.mp4`);
+        btn.rel = 'noopener noreferrer';
 
         btn.innerHTML = `
           <div class="dl-left">
@@ -285,6 +285,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ${dl.size ? `<span class="dl-size">${dl.size}</span>` : '<span class="dl-size">MP4</span>'}
           </div>
         `;
+
+        // Direct download click handler with toast feedback
+        btn.addEventListener('click', () => {
+          showToast('Starting HD video download...', 'info');
+        });
+
         downloadButtons.appendChild(btn);
       });
     }
@@ -295,8 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
       audioBtn.className = 'dl-btn dl-btn-audio';
       const audioProxyUrl = `/api/download?url=${encodeURIComponent(data.audio.url)}&title=${encodeURIComponent(data.title || 'audio')}&type=mp3`;
       audioBtn.href = audioProxyUrl;
-      audioBtn.target = '_blank';
       audioBtn.setAttribute('download', `${(data.title || 'audio').substring(0, 30)}.mp3`);
+      audioBtn.rel = 'noopener noreferrer';
 
       audioBtn.innerHTML = `
         <div class="dl-left">
@@ -308,6 +314,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <span class="dl-size">Audio</span>
       `;
+
+      audioBtn.addEventListener('click', () => {
+        showToast('Starting MP3 audio download...', 'info');
+      });
+
       downloadButtons.appendChild(audioBtn);
     }
 

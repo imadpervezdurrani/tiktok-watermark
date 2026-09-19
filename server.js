@@ -124,8 +124,13 @@ function validateInputUrl(rawUrl) {
 const ALLOWED_CDN_PATTERNS = [
   /^([a-z0-9\-_]+\.)*tiktokcdn\.com$/i,
   /^([a-z0-9\-_]+\.)*tiktokcdn-us\.com$/i,
+  /^([a-z0-9\-_]+\.)*tiktokv\.com$/i,
+  /^([a-z0-9\-_]+\.)*tiktok\.com$/i,
+  /^([a-z0-9\-_]+\.)*musical\.ly$/i,
   /^([a-z0-9\-_]+\.)*byteoversea\.com$/i,
+  /^([a-z0-9\-_]+\.)*byteoversea\.net$/i,
   /^([a-z0-9\-_]+\.)*ibytedtos\.com$/i,
+  /^([a-z0-9\-_]+\.)*ibyteimg\.com$/i,
   /^([a-z0-9\-_]+\.)*tikwm\.com$/i,
   /^([a-z0-9\-_]+\.)*cdninstagram\.com$/i,
   /^([a-z0-9\-_]+\.)*fbcdn\.net$/i,
@@ -423,7 +428,8 @@ app.get('/api/download', downloadLimiter, async (req, res) => {
     });
 
     res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
-    res.setHeader('Content-Type', contentType);
+    res.setHeader('Content-Type', 'application/octet-stream');
+    res.setHeader('Content-Transfer-Encoding', 'binary');
     if (response.headers['content-length']) {
       res.setHeader('Content-Length', response.headers['content-length']);
     }
