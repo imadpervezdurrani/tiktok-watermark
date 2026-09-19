@@ -8,10 +8,10 @@
 
 ## ✨ Features
 
-- ⚡ **Next.js App Router Architecture**:
-  - Full-stack Serverless API routes (`app/api/extract/route.js`, `app/api/download/route.js`, `app/api/health/route.js`).
-  - Next-gen SSR performance with instant streaming and automatic page pre-rendering.
-  - Zero-config 1-click Vercel cloud deployment.
+- ⚡ **Ultra-Fast Express Backend Engine**:
+  - Direct HTTPS TikWM API integration with instant streaming (<1s response time).
+  - Clean client-side rendering with zero heavy bundle overhead.
+  - Ready for 1-click cloud deployment on Vercel via `@vercel/node`.
 - 📱 **Dual Platform Engine**: Auto-detects and extracts videos from **TikTok** (videos, sounds) and **Instagram** (Reels, Videos, Posts).
 - 🚫 **100% Zero Watermark**: Extracts the pristine direct media stream before watermark overlays are added.
 - 🎬 **Multi-Format Downloads**:
@@ -26,7 +26,8 @@
   - One-click clipboard paste button.
   - Video preview player with creator details and duration badge.
   - Local download history stored in `localStorage`.
-- 💼 **Google AdSense & SEO Ready**:
+- 💼 **Google AdSense, Monetag & SEO Ready**:
+  - Pre-configured Monetag service worker (`/sw.js`).
   - 4 Mandatory legal modals (Privacy Policy, Terms of Service, DMCA Disclaimer, Contact Us).
   - Schema.org Structured Data (`WebApplication`, `HowTo`, `FAQPage`).
   - Native `robots.txt` & `sitemap.xml`.
@@ -34,7 +35,7 @@
   - **Anti-SSRF**: Strict CDN regex whitelist and private IP / loopback blocking.
   - **Anti-Command Injection**: Strict input regex validation and argument array child process execution.
   - **Anti-DDoS / Bot Floods**: Multi-tier rate limiters.
-  - **Next.js Security Headers**: Content Security Policy (CSP), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`.
+  - **Helmet Headers**: Content Security Policy (CSP), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`.
   - **Path Traversal & CRLF Guard**: Filename sanitization.
 
 ---
@@ -56,14 +57,13 @@ cd tiktok-watermark
 npm install
 ```
 
-### 3. Run the Next.js Server
+### 3. Run the Server
 ```bash
-# Start in development mode
-npm run dev
-
-# Or build and start for production
-npm run build
+# Start in production mode
 npm start
+
+# Or start in live-reload development mode
+npm run dev
 ```
 
 Open your browser at:

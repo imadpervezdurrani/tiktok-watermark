@@ -468,3 +468,5 @@ const server = app.listen(PORT, () => {
 
 // 7. Security: Request Timeout (Anti-Slowloris attack)
 server.setTimeout(30000);
+
+module.exports = app;
