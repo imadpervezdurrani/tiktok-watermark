@@ -336,7 +336,7 @@ async function extractInstagram(url) {
     const ytdlpData = await runYtDlpSecure(url);
     return formatYtDlpResponse(ytdlpData, 'instagram');
   } catch (err) {
-    throw new Error('Instagram video download nahi ho saki. Please make sure the post is public and link is active.');
+    throw new Error('Instagram ne recent security update me login-wall laga di hai. Filhal sirf TikTok videos 100% Ultra HD me download ho sakti hain.');
   }
 }
 
