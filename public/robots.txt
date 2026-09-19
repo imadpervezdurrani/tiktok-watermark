@@ -1,0 +1,6 @@
+# Robots.txt for TikGram Video Downloader
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://tikgram.app/sitemap.xml

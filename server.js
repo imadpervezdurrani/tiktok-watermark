@@ -10,12 +10,16 @@ const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
 const path = require('path');
 const axios = require('axios');
+const compression = require('compression');
 const { execFile } = require('child_process');
 const { URL } = require('url');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const YTDLP_PATH = path.join(__dirname, 'yt-dlp.exe');
+
+// 0. Performance: Gzip/Brotli compression for ultra-fast response times
+app.use(compression());
 
 // 1. Security: Hide backend server identity (Prevents server reconnaissance)
 app.disable('x-powered-by');
