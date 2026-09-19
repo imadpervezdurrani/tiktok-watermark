@@ -38,6 +38,8 @@ app.use(
           "https://*.3nbf4.com", 
           "https://3nbf4.com", 
           "https://*.monetag.com", 
+          "https://*.omg10.com",
+          "https://omg10.com",
           "https://pagead2.googlesyndication.com",
           "https://*.googlesyndication.com"
         ],

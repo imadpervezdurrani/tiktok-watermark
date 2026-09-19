@@ -43,6 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPlatform = 'all';
   let lastExtractedData = null;
 
+  // Monetag SmartLink Direct Monetization
+  const MONETAG_SMARTLINK = 'https://omg10.com/4/11841288';
+  function triggerMonetizationAd() {
+    try {
+      window.open(MONETAG_SMARTLINK, '_blank', 'noopener,noreferrer');
+    } catch (e) {
+      console.debug('Monetag ad open error:', e);
+    }
+  }
+
   // Initialize
   loadHistory();
 
@@ -296,9 +306,10 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
 
-        // Direct download click handler with toast feedback
+        // Direct download click handler with toast feedback and Monetag monetization
         btn.addEventListener('click', () => {
           showToast('Starting HD video download...', 'info');
+          setTimeout(triggerMonetizationAd, 400);
         });
 
         downloadButtons.appendChild(btn);
@@ -327,6 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       audioBtn.addEventListener('click', () => {
         showToast('Starting MP3 audio download...', 'info');
+        setTimeout(triggerMonetizationAd, 400);
       });
 
       downloadButtons.appendChild(audioBtn);

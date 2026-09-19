@@ -1516,3 +1516,110 @@ body {
   background: rgba(255, 255, 255, 0.02);
 }
 
+/* ==========================================================================
+   Monetag Sponsored Banners & Direct Link Styles
+   ========================================================================== */
+.sponsored-banner-box {
+  max-width: 780px;
+  margin: 1.5rem auto;
+  width: 100%;
+}
+
+.sponsored-banner-link {
+  display: block;
+  text-decoration: none;
+  background: linear-gradient(135deg, rgba(37, 244, 238, 0.08) 0%, rgba(254, 44, 85, 0.08) 100%);
+  border: 1px solid rgba(37, 244, 238, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sponsored-banner-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--tk-cyan);
+  box-shadow: 0 8px 30px rgba(37, 244, 238, 0.25);
+}
+
+.sponsored-tag {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.sponsored-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 4px;
+}
+
+.sponsored-icon {
+  font-size: 1.6rem;
+  color: var(--tk-cyan);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+.sponsored-text {
+  flex: 1;
+  text-align: left;
+}
+
+.sponsored-text strong {
+  display: block;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.sponsored-text p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.sponsored-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #08090d;
+  background: linear-gradient(135deg, var(--tk-cyan), #00d2ff);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.sponsored-banner-link:hover .sponsored-btn {
+  background: linear-gradient(135deg, var(--tk-pink), #ff0055);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .sponsored-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .sponsored-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
