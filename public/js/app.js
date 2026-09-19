@@ -142,11 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Form Submit ---
   downloadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const url = videoUrlInput.value.trim();
+    let url = videoUrlInput.value.trim();
 
     if (!url) {
       showToast('Please enter a video URL', 'error');
       return;
+    }
+
+    // Extract URL if extra text was included from mobile share
+    const match = url.match(/https?:\/\/[^\s]+/i);
+    if (match) {
+      url = match[0];
+      videoUrlInput.value = url;
+    } else if (/^(www\.)?(tiktok\.com|vt\.tiktok\.com|vm\.tiktok\.com|m\.tiktok\.com|instagram\.com)/i.test(url)) {
+      url = 'https://' + url;
+      videoUrlInput.value = url;
     }
 
     if (!/tiktok\.com|instagram\.com/i.test(url)) {

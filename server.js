@@ -103,21 +103,43 @@ app.use(express.static(path.join(__dirname, 'public'), {
 // SECURITY VALIDATION ENGINE
 // ==========================================================================
 
-// Strict URL Regex: Only allows authentic TikTok or Instagram URLs (Blocks Command Injection & Malicious URLs)
-const TIKTOK_REGEX = /^https:\/\/(www\.|vt\.|vm\.|m\.)?tiktok\.com\/(@[\w\.-]+\/video\/\d+|\w+)(\/|\?[\w\.-=&%#]*)?$/i;
-const INSTAGRAM_REGEX = /^https:\/\/(www\.)?instagram\.com\/(p|reel|reels)\/[\w\-]+(\/|\?[\w\.-=&%#]*)?$/i;
+// Robust URL Normalizer & Validator (Blocks Shell & Injection Attacks, supports all TikTok & Instagram share formats)
+function normalizeAndValidateUrl(rawInput) {
+  if (!rawInput || typeof rawInput !== 'string') return null;
+  let trimmed = rawInput.trim();
 
-function validateInputUrl(rawUrl) {
-  if (!rawUrl || typeof rawUrl !== 'string') return false;
-  const trimmed = rawUrl.trim();
-  
-  // Length guard (prevents buffer overflow attempts)
-  if (trimmed.length > 300) return false;
+  // Length guard (prevents memory buffer overflow)
+  if (trimmed.length > 500) return null;
 
-  // Reject suspicious shell characters immediately
-  if (/[;&|`$<>{}\0\r\n\t]/.test(trimmed)) return false;
+  // Block suspicious shell meta-characters (Command Injection Defense)
+  if (/[;|\`$<>{}\0\r\n]/.test(trimmed)) return null;
 
-  return TIKTOK_REGEX.test(trimmed) || INSTAGRAM_REGEX.test(trimmed);
+  // If user pasted text with URL inside (e.g. from TikTok mobile app), extract the URL
+  const match = trimmed.match(/https?:\/\/[^\s]+/i);
+  if (match) {
+    trimmed = match[0];
+  } else if (/^(www\.)?(tiktok\.com|vt\.tiktok\.com|vm\.tiktok\.com|m\.tiktok\.com|instagram\.com)/i.test(trimmed)) {
+    trimmed = 'https://' + trimmed;
+  }
+
+  try {
+    const parsed = new URL(trimmed);
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
+
+    const host = parsed.hostname.toLowerCase();
+    const isTikTok = /^(.*\.)?tiktok\.com$/i.test(host) || host === 'douyin.com';
+    const isInstagram = /^(.*\.)?instagram\.com$/i.test(host);
+
+    if (!isTikTok && !isInstagram) return null;
+
+    return {
+      cleanUrl: parsed.toString(),
+      isTikTok: isTikTok,
+      isInstagram: isInstagram
+    };
+  } catch {
+    return null;
+  }
 }
 
 // Whitelist of allowed CDN hosts for proxy download (SSRF Shield)
@@ -368,22 +390,20 @@ app.post('/api/extract', extractLimiter, async (req, res) => {
   try {
     const { url } = req.body;
 
-    // Strict validation against injection attacks
-    if (!validateInputUrl(url)) {
+    // Strict validation and normalization
+    const validated = normalizeAndValidateUrl(url);
+    if (!validated) {
       return res.status(400).json({ 
         success: false, 
         error: 'Ghalat URL format. Sirf sahi TikTok ya Instagram video links darj karein.' 
       });
     }
 
-    const cleanUrl = url.trim();
-    const isTikTok = /tiktok\.com/i.test(cleanUrl);
-
     let result;
-    if (isTikTok) {
-      result = await extractTikTok(cleanUrl);
+    if (validated.isTikTok) {
+      result = await extractTikTok(validated.cleanUrl);
     } else {
-      result = await extractInstagram(cleanUrl);
+      result = await extractInstagram(validated.cleanUrl);
     }
 
     return res.json(result);
@@ -464,15 +484,15 @@ app.use('*', (req, res) => {
   res.status(404).send('Not Found');
 });
 
-const server = app.listen(PORT, () => {
-  console.log(`\n======================================================`);
-  console.log(`🛡️  TikGram Military-Grade Secure Server is Running!`);
-  console.log(`🌐 Local URL: http://localhost:${PORT}`);
-  console.log(`🔒 Security: SSRF, DDoS, HPP, Helmet, Injection Shields Active`);
-  console.log(`======================================================\n`);
-});
-
-// 7. Security: Request Timeout (Anti-Slowloris attack)
-server.setTimeout(30000);
+if (require.main === module) {
+  const server = app.listen(PORT, () => {
+    console.log(`\n======================================================`);
+    console.log(`🛡️  TikGram Military-Grade Secure Server is Running!`);
+    console.log(`🌐 Local URL: http://localhost:${PORT}`);
+    console.log(`🔒 Security: SSRF, DDoS, HPP, Helmet, Injection Shields Active`);
+    console.log(`======================================================\n`);
+  });
+  server.setTimeout(30000);
+}
 
 module.exports = app;
