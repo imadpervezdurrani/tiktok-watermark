@@ -30,13 +30,24 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com"],
+        scriptSrc: [
+          "'self'", 
+          "'unsafe-inline'", 
+          "'unsafe-eval'",
+          "https://cdnjs.cloudflare.com", 
+          "https://*.3nbf4.com", 
+          "https://3nbf4.com", 
+          "https://*.monetag.com", 
+          "https://pagead2.googlesyndication.com",
+          "https://*.googlesyndication.com"
+        ],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-        imgSrc: ["'self'", "data:", "https:", "http:"],
+        imgSrc: ["'self'", "data:", "blob:", "https:", "http:"],
         mediaSrc: ["'self'", "blob:", "data:", "https:", "http:"],
-        connectSrc: ["'self'", "https://www.tikwm.com", "https://*.tiktokcdn.com", "https://*.tiktokcdn-us.com"],
-        frameAncestors: ["'none'"], // Disallows site from being embedded in iframes (Anti-Clickjacking)
+        connectSrc: ["'self'", "https:", "wss:"],
+        frameSrc: ["'self'", "https:", "http:"],
+        workerSrc: ["'self'", "blob:", "https://*.3nbf4.com", "https://3nbf4.com"],
         objectSrc: ["'none'"],
         upgradeInsecureRequests: []
       }
