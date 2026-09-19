@@ -451,6 +451,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Legal Policy Modals (AdSense Compliance) ---
+  const legalModals = {
+    privacy: document.getElementById('privacyModal'),
+    terms: document.getElementById('termsModal'),
+    dmca: document.getElementById('dmcaModal'),
+    contact: document.getElementById('contactModal')
+  };
+
+  const legalLinks = {
+    linkPrivacy: 'privacy',
+    linkTerms: 'terms',
+    linkDmca: 'dmca',
+    linkContact: 'contact'
+  };
+
+  Object.entries(legalLinks).forEach(([id, modalKey]) => {
+    const linkEl = document.getElementById(id);
+    if (linkEl) {
+      linkEl.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLegalModal(modalKey);
+      });
+    }
+  });
+
+  function openLegalModal(key) {
+    closeAllLegalModals();
+    const modal = legalModals[key];
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeAllLegalModals() {
+    Object.values(legalModals).forEach(modal => {
+      if (modal) modal.classList.remove('active');
+    });
+    document.body.style.overflow = '';
+  }
+
+  // Close on modal-close button or backdrop click
+  document.querySelectorAll('.legal-modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.closest('.modal-close')) {
+        closeAllLegalModals();
+      }
+    });
+  });
+
+  // Escape key closes modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllLegalModals();
+      closeDrawer();
+    }
+  });
+
+  // Check URL hash on initial load (e.g. #privacy, #terms, #dmca, #contact)
+  const initialHash = window.location.hash.replace('#', '');
+  if (legalModals[initialHash]) {
+    openLegalModal(initialHash);
+  }
+
   // --- Toast Notification ---
   function showToast(message, type = 'info') {
     const container = document.getElementById('toastContainer');
@@ -476,3 +540,4 @@ document.addEventListener('DOMContentLoaded', () => {
     return p.innerHTML;
   }
 });
+

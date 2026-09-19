@@ -46,7 +46,7 @@
   <!-- Typography & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=6.0">
+  <link rel="stylesheet" href="css/style.css?v=7.0">
 
   <!-- Schema.org Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -494,17 +494,134 @@
           <i class="fa-solid fa-cloud-arrow-down"></i> TikGram
         </div>
         <p class="footer-disclaimer">
-          TikGram is an educational tool and is not affiliated with TikTok, ByteDance, Instagram, or Meta. All trademarks belong to their respective owners.
+          TikGram is an independent educational tool and is not affiliated with TikTok, ByteDance, Instagram, or Meta. All trademarks belong to their respective owners.
         </p>
+        <div class="footer-links">
+          <a href="#privacy" class="footer-link" id="linkPrivacy">Privacy Policy</a>
+          <a href="#terms" class="footer-link" id="linkTerms">Terms of Service</a>
+          <a href="#dmca" class="footer-link" id="linkDmca">DMCA Disclaimer</a>
+          <a href="#contact" class="footer-link" id="linkContact">Contact Us</a>
+        </div>
       </div>
       <div class="footer-right">
         <div class="footer-badge">
-          <i class="fa-solid fa-heart" style="color: #fe2c55;"></i> Made for TikTok & Instagram Creators
+          <i class="fa-solid fa-shield-halved" style="color: var(--tk-cyan);"></i> SSL Secured &amp; AdSense Compliant
+        </div>
+        <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem;">
+          &copy; 2026 TikGram. All Rights Reserved.
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/app.js?v=6.0"></script>
+  <!-- ==========================================================================
+       AdSense Compliance Legal Modals
+       ========================================================================== -->
+
+  <!-- 1. Privacy Policy Modal -->
+  <div id="privacyModal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="legal-modal-content">
+      <div class="legal-modal-header">
+        <h3 id="privacyTitle"><i class="fa-solid fa-user-shield"></i> Privacy Policy</h3>
+        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="legal-modal-body">
+        <h4>1. Information We Collect</h4>
+        <p>At TikGram (accessible from https://tikgram.app/), your privacy is of utmost priority. TikGram does not require user registration or personal account creation. We do not collect or store the videos, audio, or images you download on our servers. Download history is stored strictly on your local browser (via Web Storage / localStorage) and never transmitted to our databases.</p>
+        
+        <h4>2. Log Files &amp; Security Data</h4>
+        <p>Like standard web servers, TikGram utilizes standard log files for security and DDoS prevention. This information includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamps, and referring pages. This data is not linked to any personally identifiable information and is used exclusively for rate limiting and server defense.</p>
+
+        <h4>3. Cookies and Advertising Partners</h4>
+        <p>TikGram may use cookies to remember preferences and optimize user experience. Third-party advertising partners (such as Google AdSense, Adsterra, or Monetag) may use cookies, JavaScript, or Web Beacons in their respective advertisements to measure campaign effectiveness and personalize ad content. TikGram has no access to or control over these third-party cookies.</p>
+
+        <h4>4. GDPR &amp; CCPA Privacy Rights</h4>
+        <p>Users have the right to request information, erasure, and objection to data processing under GDPR and California Consumer Privacy Act (CCPA). Because we do not store personal profiles, your interactions remain anonymous.</p>
+      </div>
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-primary btn-sm modal-close">I Understand</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Terms of Service Modal -->
+  <div id="termsModal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+    <div class="legal-modal-content">
+      <div class="legal-modal-header">
+        <h3 id="termsTitle"><i class="fa-solid fa-file-contract"></i> Terms of Service</h3>
+        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="legal-modal-body">
+        <h4>1. Agreement to Terms</h4>
+        <p>By accessing or using TikGram, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access the service.</p>
+
+        <h4>2. Permitted Educational Use</h4>
+        <p>TikGram is provided solely for personal, non-commercial educational purposes, such as offline viewing and research backups of publicly available social media content. Users agree not to use this service to infringe upon the intellectual property rights of creators or content publishers.</p>
+
+        <h4>3. User Responsibility &amp; Copyright</h4>
+        <p>You acknowledge that you are solely responsible for ensuring you have legitimate permission, fair use rights, or creator authorization to download and use any media. TikGram disclaims all liability for any misuse or copyright infringements committed by users.</p>
+
+        <h4>4. Disclaimer of Warranty &amp; Limitation of Liability</h4>
+        <p>TikGram is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind. We do not guarantee uninterrupted or error-free operation.</p>
+      </div>
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-primary btn-sm modal-close">Accept &amp; Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. DMCA & Copyright Disclaimer Modal -->
+  <div id="dmcaModal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="dmcaTitle">
+    <div class="legal-modal-content">
+      <div class="legal-modal-header">
+        <h3 id="dmcaTitle"><i class="fa-solid fa-copyright"></i> DMCA &amp; Copyright Disclaimer</h3>
+        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="legal-modal-body">
+        <h4>1. Zero-Storage Policy</h4>
+        <p>TikGram operates in full compliance with the Digital Millennium Copyright Act (DMCA). <strong>TikGram DOES NOT store, host, re-upload, or archive any video or audio files on our servers.</strong> All media content is parsed directly from the official content delivery network (CDN) servers of TikTok and Instagram in real-time upon user request.</p>
+
+        <h4>2. Non-Affiliation Notice</h4>
+        <p>TikGram is an independent third-party tool and is not associated, affiliated, endorsed, or sponsored by TikTok, ByteDance Ltd., Instagram, or Meta Platforms Inc.</p>
+
+        <h4>3. Copyright Infringement &amp; Takedown Requests</h4>
+        <p>If you are a copyright owner or authorized representative and believe that any content linked through our service infringes your rights, please submit a notice with the specific URL to our designated agent. We respect creator rights and will gladly review requests within 24 to 48 hours.</p>
+        <p><strong>Contact Email:</strong> <a href="mailto:contact@tikgram.app" style="color: var(--tk-cyan);">contact@tikgram.app</a></p>
+      </div>
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-primary btn-sm modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Contact Us Modal -->
+  <div id="contactModal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="legal-modal-content">
+      <div class="legal-modal-header">
+        <h3 id="contactTitle"><i class="fa-solid fa-envelope"></i> Contact Us</h3>
+        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="legal-modal-body">
+        <h4>Get in Touch with the TikGram Team</h4>
+        <p>Have questions, feedback, partnership inquiries, or need support with our downloader? We are here to help!</p>
+        
+        <div style="background: rgba(255, 255, 255, 0.04); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color); margin: 1.25rem 0;">
+          <p style="margin-bottom: 0.5rem; color: #fff;"><strong><i class="fa-solid fa-envelope" style="color: var(--tk-cyan); margin-right: 0.5rem;"></i> Email Support:</strong></p>
+          <p style="margin-bottom: 0.85rem;"><a href="mailto:contact@tikgram.app" style="color: var(--tk-cyan); font-weight: 600;">contact@tikgram.app</a></p>
+          
+          <p style="margin-bottom: 0.5rem; color: #fff;"><strong><i class="fa-solid fa-clock" style="color: var(--tk-pink); margin-right: 0.5rem;"></i> Response Time:</strong></p>
+          <p style="margin: 0; color: var(--text-secondary);">We typically respond to all inquiries within 24 hours.</p>
+        </div>
+
+        <h4>Report an Issue or Broken Link</h4>
+        <p>If you encounter a TikTok or Instagram link that fails to download, please email us the link and your device details so our engineering team can investigate.</p>
+      </div>
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-primary btn-sm modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=7.0"></script>
 </body>
 </html>
