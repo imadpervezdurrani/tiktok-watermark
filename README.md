@@ -8,6 +8,10 @@
 
 ## ✨ Features
 
+- ⚡ **Next.js App Router Architecture**:
+  - Full-stack Serverless API routes (`app/api/extract/route.js`, `app/api/download/route.js`, `app/api/health/route.js`).
+  - Next-gen SSR performance with instant streaming and automatic page pre-rendering.
+  - Zero-config 1-click Vercel cloud deployment.
 - 📱 **Dual Platform Engine**: Auto-detects and extracts videos from **TikTok** (videos, sounds) and **Instagram** (Reels, Videos, Posts).
 - 🚫 **100% Zero Watermark**: Extracts the pristine direct media stream before watermark overlays are added.
 - 🎬 **Multi-Format Downloads**:
@@ -22,12 +26,15 @@
   - One-click clipboard paste button.
   - Video preview player with creator details and duration badge.
   - Local download history stored in `localStorage`.
+- 💼 **Google AdSense & SEO Ready**:
+  - 4 Mandatory legal modals (Privacy Policy, Terms of Service, DMCA Disclaimer, Contact Us).
+  - Schema.org Structured Data (`WebApplication`, `HowTo`, `FAQPage`).
+  - Native `robots.txt` & `sitemap.xml`.
 - 🛡️ **Military-Grade Hardened Security**:
   - **Anti-SSRF**: Strict CDN regex whitelist and private IP / loopback blocking.
   - **Anti-Command Injection**: Strict input regex validation and argument array child process execution.
-  - **Anti-DDoS / Bot Floods**: Multi-tier rate limiters (`express-rate-limit`).
-  - **Anti-HPP**: HTTP Parameter Pollution shield (`hpp`).
-  - **Helmet Headers**: Content Security Policy (CSP), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`.
+  - **Anti-DDoS / Bot Floods**: Multi-tier rate limiters.
+  - **Next.js Security Headers**: Content Security Policy (CSP), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`.
   - **Path Traversal & CRLF Guard**: Filename sanitization.
 
 ---
@@ -40,28 +47,39 @@
 ### 2. Installation
 ```bash
 # Clone the repository
-git clone https://github.com/imadpervezdurrani/tiktok-instagram-downloader.git
+git clone https://github.com/imadpervezdurrani/tiktok-watermark.git
 
 # Navigate to project directory
-cd tiktok-instagram-downloader
+cd tiktok-watermark
 
 # Install dependencies
 npm install
 ```
 
-### 3. Run the Server
+### 3. Run the Next.js Server
 ```bash
-# Start in production mode
-npm start
-
-# Or start in live-reload development mode
+# Start in development mode
 npm run dev
+
+# Or build and start for production
+npm run build
+npm start
 ```
 
 Open your browser at:
 ```
 http://localhost:3000
 ```
+
+---
+
+## ☁️ 1-Click Vercel Deployment
+
+1. Push this repository to your GitHub account (`https://github.com/imadpervezdurrani/tiktok-watermark.git`).
+2. Go to [vercel.com](https://vercel.com) and log in with GitHub.
+3. Click **Add New Project** and select `tiktok-watermark`.
+4. Leave framework preset as **Next.js** and click **Deploy**.
+5. Your site is live on the global Vercel CDN within 60 seconds with free SSL!
 
 ---
 
