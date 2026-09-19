@@ -194,25 +194,24 @@
             <span class="pulse-dot"></span> 100% Free & Unlimited HD Downloader
           </div>
           <h1 class="hero-title">
-            Download TikTok & Instagram <br>
+            Download TikTok Videos <br>
             <span class="gradient-hero-text">Without Watermark</span>
           </h1>
           <p class="hero-subtitle">
-            Paste any TikTok or Instagram Reel / Video link below. Download in Full HD MP4 or extract original MP3 audio
-            in seconds!
+            Paste any TikTok link below. Download in Full HD 1080p MP4 or extract original MP3 sounds instantly!
           </p>
         </div>
 
         <!-- Platform Tabs -->
         <div class="platform-tabs" role="tablist" aria-label="Platform selection">
-          <button class="platform-tab active" data-platform="all" role="tab" aria-selected="true">
-            <i class="fa-solid fa-layer-group"></i> Auto-Detect
+          <button class="platform-tab active" data-platform="tiktok" role="tab" aria-selected="true">
+            <i class="fa-brands fa-tiktok"></i> TikTok Video HD
           </button>
           <button class="platform-tab" data-platform="tiktok" role="tab" aria-selected="false">
-            <i class="fa-brands fa-tiktok"></i> TikTok
+            <i class="fa-solid fa-music"></i> TikTok MP3 Audio
           </button>
-          <button class="platform-tab" data-platform="instagram" role="tab" aria-selected="false">
-            <i class="fa-brands fa-instagram"></i> Instagram Reels
+          <button class="platform-tab" data-platform="instagram" role="tab" aria-selected="false" style="opacity: 0.6;">
+            <i class="fa-brands fa-instagram"></i> Instagram <span style="font-size: 0.65rem; background: rgba(255,255,255,0.15); padding: 2px 6px; border-radius: 4px; margin-left: 4px;">Soon</span>
           </button>
         </div>
 
@@ -221,10 +220,10 @@
           <form id="downloadForm" class="search-box" method="POST" action="/api/extract">
             <div class="search-box-top">
               <div class="input-icon-left">
-                <i class="fa-solid fa-link" id="inputStatusIcon" aria-hidden="true"></i>
+                <i class="fa-brands fa-tiktok" id="inputStatusIcon" aria-hidden="true"></i>
               </div>
               <input type="url" id="videoUrlInput" name="url"
-                placeholder="Paste TikTok or Instagram link here (e.g. https://www.tiktok.com/@... or instagram.com/reel/...)"
+                placeholder="Paste TikTok video link here (e.g. https://vm.tiktok.com/... or https://www.tiktok.com/@...)"
                 required autocomplete="off" aria-label="Video URL input">
               <div class="search-actions">
                 <button type="button" id="pasteBtn" class="btn-action" title="Paste from clipboard"
