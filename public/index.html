@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  
+
   <!-- Primary SEO Meta Tags -->
   <title>TikGram - TikTok & Instagram Video Downloader Without Watermark in HD</title>
   <meta name="title" content="TikGram - TikTok & Instagram Video Downloader Without Watermark in HD">
-  <meta name="description" content="Download TikTok and Instagram videos, reels, posts, and MP3 audio in Full HD 1080p without watermark. 100% Free, fast, secure, and no login required on any device.">
-  <meta name="keywords" content="tiktok video download without watermark, download tiktok video, tiktok downloader, instagram reel download, download instagram video, instagram reel downloader, save tiktok mp3, remove tiktok watermark, tiktok downloader online free">
+  <meta name="description"
+    content="Download TikTok and Instagram videos, reels, posts, and MP3 audio in Full HD 1080p without watermark. 100% Free, fast, secure, and no login required on any device.">
+  <meta name="keywords"
+    content="tiktok video download without watermark, download tiktok video, tiktok downloader, instagram reel download, download instagram video, instagram reel downloader, save tiktok mp3, remove tiktok watermark, tiktok downloader online free">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="author" content="TikGram">
   <meta name="application-name" content="TikGram">
@@ -20,7 +23,8 @@
   <meta property="og:site_name" content="TikGram">
   <meta property="og:url" content="https://tikgram.app/">
   <meta property="og:title" content="TikGram - Download TikTok & Instagram Videos Without Watermark">
-  <meta property="og:description" content="Fast, 100% free tool to download TikTok videos and Instagram Reels in crystal clear HD MP4 or extract original MP3 sounds with no watermarks.">
+  <meta property="og:description"
+    content="Fast, 100% free tool to download TikTok videos and Instagram Reels in crystal clear HD MP4 or extract original MP3 sounds with no watermarks.">
   <meta property="og:image" content="https://tikgram.app/favicon.svg">
   <meta property="og:image:alt" content="TikGram Video Downloader">
   <meta property="og:locale" content="en_US">
@@ -29,7 +33,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://tikgram.app/">
   <meta name="twitter:title" content="TikGram - TikTok & Instagram Video Downloader Without Watermark">
-  <meta name="twitter:description" content="Download high-definition TikTok videos and Instagram Reels without watermark in MP4 or MP3 audio format. Free, fast & secure.">
+  <meta name="twitter:description"
+    content="Download high-definition TikTok videos and Instagram Reels without watermark in MP4 or MP3 audio format. Free, fast & secure.">
   <meta name="twitter:image" content="https://tikgram.app/favicon.svg">
 
   <!-- Favicons & Icons -->
@@ -44,7 +49,8 @@
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
   <!-- Typography & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css?v=7.0">
 
@@ -147,6 +153,7 @@
   }
   </script>
 </head>
+
 <body>
   <!-- Ambient background glow elements -->
   <div class="bg-glow bg-glow-tiktok"></div>
@@ -188,7 +195,8 @@
             <span class="gradient-hero-text">Without Watermark</span>
           </h1>
           <p class="hero-subtitle">
-            Paste any TikTok or Instagram Reel / Video link below. Download in Full HD MP4 or extract original MP3 audio in seconds!
+            Paste any TikTok or Instagram Reel / Video link below. Download in Full HD MP4 or extract original MP3 audio
+            in seconds!
           </p>
         </div>
 
@@ -212,20 +220,16 @@
               <div class="input-icon-left">
                 <i class="fa-solid fa-link" id="inputStatusIcon" aria-hidden="true"></i>
               </div>
-              <input 
-                type="url" 
-                id="videoUrlInput" 
-                name="url"
-                placeholder="Paste TikTok or Instagram link here (e.g. https://www.tiktok.com/@... or instagram.com/reel/...)" 
-                required
-                autocomplete="off"
-                aria-label="Video URL input"
-              >
+              <input type="url" id="videoUrlInput" name="url"
+                placeholder="Paste TikTok or Instagram link here (e.g. https://www.tiktok.com/@... or instagram.com/reel/...)"
+                required autocomplete="off" aria-label="Video URL input">
               <div class="search-actions">
-                <button type="button" id="pasteBtn" class="btn-action" title="Paste from clipboard" aria-label="Paste link from clipboard">
+                <button type="button" id="pasteBtn" class="btn-action" title="Paste from clipboard"
+                  aria-label="Paste link from clipboard">
                   <i class="fa-regular fa-paste"></i> Paste
                 </button>
-                <button type="button" id="clearBtn" class="btn-action hidden" title="Clear input" aria-label="Clear URL input">
+                <button type="button" id="clearBtn" class="btn-action hidden" title="Clear input"
+                  aria-label="Clear URL input">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
               </div>
@@ -257,7 +261,8 @@
             <!-- Left: Video Preview -->
             <div class="result-media-col">
               <div class="media-container">
-                <video id="videoPreview" controls playsinline preload="metadata" poster="" class="preview-player hidden"></video>
+                <video id="videoPreview" controls playsinline preload="metadata" poster=""
+                  class="preview-player hidden"></video>
                 <img id="imagePreview" src="" alt="Video thumbnail preview" class="preview-thumb">
                 <div class="platform-badge-overlay" id="platformBadge">
                   <i class="fa-brands fa-tiktok"></i> TikTok
@@ -279,8 +284,9 @@
               <h2 id="videoTitle" class="video-title">Video title will appear here</h2>
 
               <div class="download-section">
-                <span class="download-label"><i class="fa-solid fa-download"></i> Available Downloads (No Watermark):</span>
-                
+                <span class="download-label"><i class="fa-solid fa-download"></i> Available Downloads (No
+                  Watermark):</span>
+
                 <div class="download-buttons-group" id="downloadButtons">
                   <!-- Dynamically populated buttons -->
                 </div>
@@ -326,14 +332,16 @@
               <i class="fa-solid fa-wand-magic-sparkles"></i>
             </div>
             <h3>100% No Watermark</h3>
-            <p>Removes the floating TikTok logo and Instagram tags so you get the pristine original video in full resolution.</p>
+            <p>Removes the floating TikTok logo and Instagram tags so you get the pristine original video in full
+              resolution.</p>
           </article>
           <article class="feature-card">
             <div class="feature-icon icon-pink">
               <i class="fa-solid fa-bolt-lightning"></i>
             </div>
             <h3>High Speed Engine</h3>
-            <p>Our dual-channel streaming engine extracts videos in under 2 seconds directly to your phone or computer storage.</p>
+            <p>Our dual-channel streaming engine extracts videos in under 2 seconds directly to your phone or computer
+              storage.</p>
           </article>
           <article class="feature-card">
             <div class="feature-icon icon-purple">
@@ -347,7 +355,8 @@
               <i class="fa-solid fa-mobile-screen-button"></i>
             </div>
             <h3>Works Everywhere</h3>
-            <p>Fully compatible with Android, iPhone (iOS Safari), Windows, Mac, and tablets without installing any app.</p>
+            <p>Fully compatible with Android, iPhone (iOS Safari), Windows, Mac, and tablets without installing any app.
+            </p>
           </article>
         </div>
       </div>
@@ -364,7 +373,8 @@
           <article class="step-card">
             <div class="step-number">1</div>
             <h3>Copy Link</h3>
-            <p>Open TikTok or Instagram app, click the <strong>Share</strong> button on any video/reel and select <strong>Copy Link</strong>.</p>
+            <p>Open TikTok or Instagram app, click the <strong>Share</strong> button on any video/reel and select
+              <strong>Copy Link</strong>.</p>
           </article>
           <article class="step-card">
             <div class="step-number">2</div>
@@ -374,7 +384,8 @@
           <article class="step-card">
             <div class="step-number">3</div>
             <h3>Save to Device</h3>
-            <p>Choose your preferred quality (HD No Watermark or MP3 Audio) and save directly to your gallery or downloads folder.</p>
+            <p>Choose your preferred quality (HD No Watermark or MP3 Audio) and save directly to your gallery or
+              downloads folder.</p>
           </article>
         </div>
       </div>
@@ -388,15 +399,22 @@
             The Ultimate TikTok & Instagram Downloader Online
           </h2>
           <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.7;">
-            TikGram is an all-in-one web-based utility created to help creators, editors, and social media enthusiasts download TikTok videos without watermarks and save Instagram Reels in Full HD 1080p. Unlike standard screen recordings or watermarked downloads, TikGram accesses the direct raw MP4 video streams hosted on the content delivery networks (CDNs), allowing you to preserve the original video bitrate, audio clarity, and 60fps smoothness.
+            TikGram is an all-in-one web-based utility created to help creators, editors, and social media enthusiasts
+            download TikTok videos without watermarks and save Instagram Reels in Full HD 1080p. Unlike standard screen
+            recordings or watermarked downloads, TikGram accesses the direct raw MP4 video streams hosted on the content
+            delivery networks (CDNs), allowing you to preserve the original video bitrate, audio clarity, and 60fps
+            smoothness.
           </p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
             <div>
               <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--tk-cyan); margin-bottom: 0.5rem;">
                 <i class="fa-brands fa-tiktok"></i> TikTok No-Watermark Technology
               </h3>
               <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-                When you share a video directly from the TikTok app, the platform automatically imprints a bouncing username watermark. TikGram bypasses this by fetching the unwatermarked stream URL before client-side rendering occurs.
+                When you share a video directly from the TikTok app, the platform automatically imprints a bouncing
+                username watermark. TikGram bypasses this by fetching the unwatermarked stream URL before client-side
+                rendering occurs.
               </p>
             </div>
             <div>
@@ -404,7 +422,9 @@
                 <i class="fa-brands fa-instagram"></i> Instagram Reels & Video Saver
               </h3>
               <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-                Save trending Instagram Reels, public video posts, and IGTV clips in original high definition. Works seamlessly across iOS Safari, Android Chrome, and desktop browsers without login or third-party extensions.
+                Save trending Instagram Reels, public video posts, and IGTV clips in original high definition. Works
+                seamlessly across iOS Safari, Android Chrome, and desktop browsers without login or third-party
+                extensions.
               </p>
             </div>
           </div>
@@ -426,7 +446,8 @@
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="faq-answer">
-              <p>Yes, 100% free! You can download unlimited TikTok and Instagram videos without any subscription, registration, or hidden fees.</p>
+              <p>Yes, 100% free! You can download unlimited TikTok and Instagram videos without any subscription,
+                registration, or hidden fees.</p>
             </div>
           </div>
           <div class="faq-item">
@@ -435,7 +456,8 @@
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="faq-answer">
-              <p>No! Our engine fetches the original source video directly from the servers before watermarks are added, giving you a clean, crisp video.</p>
+              <p>No! Our engine fetches the original source video directly from the servers before watermarks are added,
+                giving you a clean, crisp video.</p>
             </div>
           </div>
           <div class="faq-item">
@@ -444,7 +466,8 @@
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="faq-answer">
-              <p>On Android and PC, files are saved in your <strong>Downloads</strong> folder. On iPhone (iOS), you can find them in the Files app or save directly to your Photos / Camera Roll from Safari.</p>
+              <p>On Android and PC, files are saved in your <strong>Downloads</strong> folder. On iPhone (iOS), you can
+                find them in the Files app or save directly to your Photos / Camera Roll from Safari.</p>
             </div>
           </div>
           <div class="faq-item">
@@ -494,7 +517,8 @@
           <i class="fa-solid fa-cloud-arrow-down"></i> TikGram
         </div>
         <p class="footer-disclaimer">
-          TikGram is an independent educational tool and is not affiliated with TikTok, ByteDance, Instagram, or Meta. All trademarks belong to their respective owners.
+          TikGram is an independent educational tool and is not affiliated with TikTok, ByteDance, Instagram, or Meta.
+          All trademarks belong to their respective owners.
         </p>
         <div class="footer-links">
           <a href="#privacy" class="footer-link" id="linkPrivacy">Privacy Policy</a>
@@ -505,7 +529,7 @@
       </div>
       <div class="footer-right">
         <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem;">
-          &copy; 2026 TikGram. All Rights Reserved.
+          &copy; 2025-2026 TikGram. All Rights Reserved.
         </div>
       </div>
     </div>
@@ -520,20 +544,32 @@
     <div class="legal-modal-content">
       <div class="legal-modal-header">
         <h3 id="privacyTitle"><i class="fa-solid fa-user-shield"></i> Privacy Policy</h3>
-        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i
+            class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="legal-modal-body">
         <h4>1. Information We Collect</h4>
-        <p>At TikGram (accessible from https://tikgram.app/), your privacy is of utmost priority. TikGram does not require user registration or personal account creation. We do not collect or store the videos, audio, or images you download on our servers. Download history is stored strictly on your local browser (via Web Storage / localStorage) and never transmitted to our databases.</p>
-        
+        <p>At TikGram (accessible from https://tikgram.app/), your privacy is of utmost priority. TikGram does not
+          require user registration or personal account creation. We do not collect or store the videos, audio, or
+          images you download on our servers. Download history is stored strictly on your local browser (via Web Storage
+          / localStorage) and never transmitted to our databases.</p>
+
         <h4>2. Log Files &amp; Security Data</h4>
-        <p>Like standard web servers, TikGram utilizes standard log files for security and DDoS prevention. This information includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamps, and referring pages. This data is not linked to any personally identifiable information and is used exclusively for rate limiting and server defense.</p>
+        <p>Like standard web servers, TikGram utilizes standard log files for security and DDoS prevention. This
+          information includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP),
+          date/time stamps, and referring pages. This data is not linked to any personally identifiable information and
+          is used exclusively for rate limiting and server defense.</p>
 
         <h4>3. Cookies and Advertising Partners</h4>
-        <p>TikGram may use cookies to remember preferences and optimize user experience. Third-party advertising partners (such as Google AdSense, Adsterra, or Monetag) may use cookies, JavaScript, or Web Beacons in their respective advertisements to measure campaign effectiveness and personalize ad content. TikGram has no access to or control over these third-party cookies.</p>
+        <p>TikGram may use cookies to remember preferences and optimize user experience. Third-party advertising
+          partners (such as Google AdSense, Adsterra, or Monetag) may use cookies, JavaScript, or Web Beacons in their
+          respective advertisements to measure campaign effectiveness and personalize ad content. TikGram has no access
+          to or control over these third-party cookies.</p>
 
         <h4>4. GDPR &amp; CCPA Privacy Rights</h4>
-        <p>Users have the right to request information, erasure, and objection to data processing under GDPR and California Consumer Privacy Act (CCPA). Because we do not store personal profiles, your interactions remain anonymous.</p>
+        <p>Users have the right to request information, erasure, and objection to data processing under GDPR and
+          California Consumer Privacy Act (CCPA). Because we do not store personal profiles, your interactions remain
+          anonymous.</p>
       </div>
       <div class="legal-modal-footer">
         <button type="button" class="btn btn-primary btn-sm modal-close">I Understand</button>
@@ -546,20 +582,27 @@
     <div class="legal-modal-content">
       <div class="legal-modal-header">
         <h3 id="termsTitle"><i class="fa-solid fa-file-contract"></i> Terms of Service</h3>
-        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i
+            class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="legal-modal-body">
         <h4>1. Agreement to Terms</h4>
-        <p>By accessing or using TikGram, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access the service.</p>
+        <p>By accessing or using TikGram, you agree to be bound by these Terms of Service. If you disagree with any part
+          of these terms, you may not access the service.</p>
 
         <h4>2. Permitted Educational Use</h4>
-        <p>TikGram is provided solely for personal, non-commercial educational purposes, such as offline viewing and research backups of publicly available social media content. Users agree not to use this service to infringe upon the intellectual property rights of creators or content publishers.</p>
+        <p>TikGram is provided solely for personal, non-commercial educational purposes, such as offline viewing and
+          research backups of publicly available social media content. Users agree not to use this service to infringe
+          upon the intellectual property rights of creators or content publishers.</p>
 
         <h4>3. User Responsibility &amp; Copyright</h4>
-        <p>You acknowledge that you are solely responsible for ensuring you have legitimate permission, fair use rights, or creator authorization to download and use any media. TikGram disclaims all liability for any misuse or copyright infringements committed by users.</p>
+        <p>You acknowledge that you are solely responsible for ensuring you have legitimate permission, fair use rights,
+          or creator authorization to download and use any media. TikGram disclaims all liability for any misuse or
+          copyright infringements committed by users.</p>
 
         <h4>4. Disclaimer of Warranty &amp; Limitation of Liability</h4>
-        <p>TikGram is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind. We do not guarantee uninterrupted or error-free operation.</p>
+        <p>TikGram is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind. We do not
+          guarantee uninterrupted or error-free operation.</p>
       </div>
       <div class="legal-modal-footer">
         <button type="button" class="btn btn-primary btn-sm modal-close">Accept &amp; Close</button>
@@ -572,18 +615,26 @@
     <div class="legal-modal-content">
       <div class="legal-modal-header">
         <h3 id="dmcaTitle"><i class="fa-solid fa-copyright"></i> DMCA &amp; Copyright Disclaimer</h3>
-        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i
+            class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="legal-modal-body">
         <h4>1. Zero-Storage Policy</h4>
-        <p>TikGram operates in full compliance with the Digital Millennium Copyright Act (DMCA). <strong>TikGram DOES NOT store, host, re-upload, or archive any video or audio files on our servers.</strong> All media content is parsed directly from the official content delivery network (CDN) servers of TikTok and Instagram in real-time upon user request.</p>
+        <p>TikGram operates in full compliance with the Digital Millennium Copyright Act (DMCA). <strong>TikGram DOES
+            NOT store, host, re-upload, or archive any video or audio files on our servers.</strong> All media content
+          is parsed directly from the official content delivery network (CDN) servers of TikTok and Instagram in
+          real-time upon user request.</p>
 
         <h4>2. Non-Affiliation Notice</h4>
-        <p>TikGram is an independent third-party tool and is not associated, affiliated, endorsed, or sponsored by TikTok, ByteDance Ltd., Instagram, or Meta Platforms Inc.</p>
+        <p>TikGram is an independent third-party tool and is not associated, affiliated, endorsed, or sponsored by
+          TikTok, ByteDance Ltd., Instagram, or Meta Platforms Inc.</p>
 
         <h4>3. Copyright Infringement &amp; Takedown Requests</h4>
-        <p>If you are a copyright owner or authorized representative and believe that any content linked through our service infringes your rights, please submit a notice with the specific URL to our designated agent. We respect creator rights and will gladly review requests within 24 to 48 hours.</p>
-        <p><strong>Contact Email:</strong> <a href="mailto:contact@tikgram.app" style="color: var(--tk-cyan);">contact@tikgram.app</a></p>
+        <p>If you are a copyright owner or authorized representative and believe that any content linked through our
+          service infringes your rights, please submit a notice with the specific URL to our designated agent. We
+          respect creator rights and will gladly review requests within 24 to 48 hours.</p>
+        <p><strong>Contact Email:</strong> <a href="mailto:contact@tikgram.app"
+            style="color: var(--tk-cyan);">contact@tikgram.app</a></p>
       </div>
       <div class="legal-modal-footer">
         <button type="button" class="btn btn-primary btn-sm modal-close">Close</button>
@@ -596,22 +647,29 @@
     <div class="legal-modal-content">
       <div class="legal-modal-header">
         <h3 id="contactTitle"><i class="fa-solid fa-envelope"></i> Contact Us</h3>
-        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" class="btn-icon modal-close" aria-label="Close modal"><i
+            class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="legal-modal-body">
         <h4>Get in Touch with the TikGram Team</h4>
-        <p>Have questions, feedback, partnership inquiries, or need support with our downloader? We are here to help!</p>
-        
-        <div style="background: rgba(255, 255, 255, 0.04); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color); margin: 1.25rem 0;">
-          <p style="margin-bottom: 0.5rem; color: #fff;"><strong><i class="fa-solid fa-envelope" style="color: var(--tk-cyan); margin-right: 0.5rem;"></i> Email Support:</strong></p>
-          <p style="margin-bottom: 0.85rem;"><a href="mailto:contact@tikgram.app" style="color: var(--tk-cyan); font-weight: 600;">contact@tikgram.app</a></p>
-          
-          <p style="margin-bottom: 0.5rem; color: #fff;"><strong><i class="fa-solid fa-clock" style="color: var(--tk-pink); margin-right: 0.5rem;"></i> Response Time:</strong></p>
+        <p>Have questions, feedback, partnership inquiries, or need support with our downloader? We are here to help!
+        </p>
+
+        <div
+          style="background: rgba(255, 255, 255, 0.04); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color); margin: 1.25rem 0;">
+          <p style="margin-bottom: 0.5rem; color: #fff;"><strong><i class="fa-solid fa-envelope"
+                style="color: var(--tk-cyan); margin-right: 0.5rem;"></i> Email Support:</strong></p>
+          <p style="margin-bottom: 0.85rem;"><a href="mailto:contact@tikgram.app"
+              style="color: var(--tk-cyan); font-weight: 600;">contact@tikgram.app</a></p>
+
+          <p style="margin-bottom: 0.5rem; color: #fff;"><strong><i class="fa-solid fa-clock"
+                style="color: var(--tk-pink); margin-right: 0.5rem;"></i> Response Time:</strong></p>
           <p style="margin: 0; color: var(--text-secondary);">We typically respond to all inquiries within 24 hours.</p>
         </div>
 
         <h4>Report an Issue or Broken Link</h4>
-        <p>If you encounter a TikTok or Instagram link that fails to download, please email us the link and your device details so our engineering team can investigate.</p>
+        <p>If you encounter a TikTok or Instagram link that fails to download, please email us the link and your device
+          details so our engineering team can investigate.</p>
       </div>
       <div class="legal-modal-footer">
         <button type="button" class="btn btn-primary btn-sm modal-close">Close</button>
@@ -620,5 +678,13 @@
   </div>
 
   <script src="js/app.js?v=7.0"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {});
+      });
+    }
+  </script>
 </body>
+
 </html>
